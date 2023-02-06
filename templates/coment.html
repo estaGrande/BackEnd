@@ -1,0 +1,29 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+
+<h1>{{posts.title}}</h1>
+    <div class="p-4 border-bottom">
+
+        {% for c in posts.comment_set.all %}
+           <p> {{c.user.username}} : {{ c.text }} </p>
+        {% endfor %}
+
+    {% if request.user.is_authenticated %}
+     
+        <form method="POST" action="/comment/">
+            {% csrf_token %}
+            <input type="hidden" value="{{posts.id}}" name="post">
+        <div class="form-group my-4">
+            <textarea class="form-control" name="text" placeholder="Ingrese un comentario"></textarea>
+        </div>
+        <button class="btn btn-info" type="submit">Enviar</button>
+        </form>
+
+    {% endif %}
+
+    </div>
+
+
+{% endblock %}

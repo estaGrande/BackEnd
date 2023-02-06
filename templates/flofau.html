@@ -1,0 +1,15 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+<h1>Flora y Fauna</h1>
+
+{% for p in posts %}
+    <div class="p-4 border-bottom">
+    <h2>{{p.name}}</h2>
+    <p> {{p.tipo}} </p>
+    <p> {{p.description}} </p>
+
+    </div>
+{% endfor %}
+
+{% endblock %}

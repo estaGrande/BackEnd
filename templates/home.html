@@ -1,0 +1,24 @@
+{% extends "layouts/main.html" %}
+<!-- username: admin
+    password: admin -->
+{% block content %}
+<h1>Inicio</h1>
+
+{% for p in posts %}
+    <div class="p-4 border-bottom">
+    <h2>{{p.title}}</h2>
+    <p> {{p.text}} </p>
+
+    {% if request.user.is_authenticated %}
+
+        {% if  request.user == p.user %}
+        <a href="/post/{{p.id}}">Editar</a>
+        <a href="/coment/{{p.id}}">Comentarios</a>
+        {% endif %}
+
+    {% endif %}
+
+    </div>
+{% endfor %}
+
+{% endblock %}

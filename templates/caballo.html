@@ -1,0 +1,13 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+<h1>Caballos</h1>
+
+{% for p in posts %}
+    <div class="p-4 border-bottom">
+    <h2>{{p.name}}</h2>
+    <p> {{p.description}} </p>
+    </div>
+{% endfor %}
+
+{% endblock %}
