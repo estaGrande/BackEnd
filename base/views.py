@@ -37,7 +37,7 @@ def registerPage(request):
                 return redirect ('/register')
             User.objects.create_user(username, email=email, first_name=name, last_name=last_name, password=password)
         
-    return render(request, 'post.html')
+    return render(request, 'register.html')
 
 def logoutPage(request):
     logout(request)
