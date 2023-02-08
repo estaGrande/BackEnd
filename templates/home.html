@@ -13,10 +13,10 @@
 
         {% if  request.user == p.user %}
         <a href="/post/{{p.id}}">Editar</a>
-        <a href="/coment/{{p.id}}">Comentarios</a>
         {% endif %}
 
     {% endif %}
+    <a href="/coment/{{p.id}}">Comentarios</a>
 
     </div>
 {% endfor %}
