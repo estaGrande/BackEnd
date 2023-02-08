@@ -3,23 +3,14 @@
 
 {% block content %}
 
-{% if register is None %}
 <h1>Registro</h1>
-{% else %}
-<h1>Editar perfil</h1>
-{% endif %}
-
 
 <form method="POST" action="">
     {% csrf_token %}
 
-    {% if register is not None %}
-        <input type="hidden" value="{{register.id}}" name="id">
-    {% endif %}
-
     <div class="form-group my-4">
         <label>Nombre</label>
-        <input type="text" class="form-control" name="name" placeholder="Nombre" value="{{register.name}}">
+        <input type="text" class="form-control" name="name" placeholder="Nombre">
     </div>
 
     <div class="form-group my-4">
@@ -31,20 +22,12 @@
         <label>Usuario</label>
         <input type="text" class="form-control" name="username" placeholder="Nombre de Usuario">
     </div>
-
-    {% if register is not None %}
-    <div class="form-group my-4">
-        <label>Email</label>
-        <input type="email" class="form-control" name="email" placeholder="Email" disabled>
-    </div>
-    {% else %}
+   
     <div class="form-group my-4">
         <label>Email</label>
         <input type="email" class="form-control" name="email" placeholder="Email">
     </div>
-    {% endif %}
 
-    {% if register is None %}
     <div class="form-group my-4">
         <label>Contraseña</label>
         <input type="password" class="form-control" name="password" placeholder="Contraseña">
@@ -54,13 +37,9 @@
         <label>Confirmar contraseña</label>
         <input type="password" class="form-control" name="confirm_password" placeholder="Confirmar contraseña">
     </div>
-    {% endif %}
     
-    {% if register is None %}
     <button class="btn btn-primary" type="submit">Registrar</button>
-    {% else %}
-    <button class="btn btn-primary" type="submit">Editar</button>
-    {% endif %}
+    
 </form>
 
 {% endblock %}

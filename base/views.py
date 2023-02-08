@@ -35,8 +35,9 @@ def registerPage(request):
             if (password != confirm_password):
                 messages.error(request, 'Las contraseñas son distintas')
                 return redirect ('/register')
-            User.objects.create_user(username, email=email, first_name=name, last_name=last_name, password=password)
-        
+            User.objects.create_user(username,first_name=name, last_name=last_name, email=email, password=password)
+            messages.success(request, 'Te registraste correctamente')
+            return redirect ('/login')
     return render(request, 'register.html')
 
 def logoutPage(request):
